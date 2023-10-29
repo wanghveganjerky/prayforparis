@@ -3,7 +3,7 @@ body {
   padding: 0;
   height: 100vh;
   overflow: hidden;
-  background: white;
+  background: black;
 }
 
 @media screen and (max-width: 768px) {
