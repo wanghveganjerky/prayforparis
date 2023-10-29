@@ -46,7 +46,7 @@ const LINE_HEIGHT = FONT_SIZE * 1.5;
 class Bomb {
   constructor(index) {
     this.index = index;
-    this.speed = BOMB_SPEED + (Math.random() * 12 - 6);
+    this.speed = BOMB_SPEED + (Math.random() * 16 - 8);
     this.reset(true);
   }
 
