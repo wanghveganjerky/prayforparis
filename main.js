@@ -82,8 +82,14 @@ class Bomb {
     const lines = bombFrames[0].split('\n');
     let y = this.y;
     ctx.font = `${FONT_SIZE}px monospace`;
-    ctx.fillStyle = 'white';
-    lines.forEach(line => {
+
+    lines.forEach((line, index) => {
+      if (index % 2 === 0) {
+        ctx.fillStyle = '#1a49c0';
+      } else {
+        
+        ctx.fillStyle = 'white';
+      }
       ctx.fillText(line, this.x, y);
       y += LINE_HEIGHT;
     });
