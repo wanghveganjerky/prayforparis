@@ -8,14 +8,19 @@ const bombArtArray = [
 ];
 
 const explosiveArtArray = [
-  "      _ ._  _ , _ ._      ",
-  "    (_ ' ( `  )_  .__)    ",
-  "  ( (  (    )   `)  ) _)  ",
-  " (__ (_   (_ . _) _) ,__) ",
-  "     `~~`\\ ' . /`~~`     ",
-  "          ;   ;           ",
-  "          /   \\           ",
-  "         /_ __ \\"
+  "          __ .__  __, __ .          ",
+  "        (_ ' ( `  )__  .__)        ",
+  "        (_ ' ( `  )__  .__)        ",
+  "      ( (  (    )   `)  ) _)      ",
+  "      ( (  (    )   `)  ) _)      ",
+  "     (__ (_   (_ . _) _) ,__)     ",
+  "     (__ (_   (_ . _) _) ,__)     ",
+  "         ~~`\\ ' . /~~~        ",
+  "         ~~`\\ ' . /~~~        ",
+  "              ;;   ;              ",
+  "              ;;   ;              ",
+  "              /    \\              ",
+  "             /_  _ \\             "
 ];
 
 const bombArt = bombArtArray.join('\n');
@@ -32,7 +37,7 @@ const explosiveFrames = [explosiveArt.trim()];
 
 const NUM_BOMBS = 15;
 const BOMB_SPEED = 15;
-const FONT_SIZE = 15;
+const FONT_SIZE = 10;
 const LINE_HEIGHT = FONT_SIZE * 1.5;
 
 class Bomb {
@@ -49,9 +54,11 @@ class Bomb {
     } else {
         this.y = -Math.random() * canvas.height;
     }
+    this.isExploding = false;
   }
 
   explode() {
+    this.isExploding = true;
     ctx.font = `${FONT_SIZE}px monospace`;
     ctx.fillStyle = 'red';
     const lines = explosiveFrames[0].split('\n');
@@ -63,10 +70,11 @@ class Bomb {
 
     setTimeout(() => {
       this.reset();
-    }, 1000); // Explosion lasts for 1 second
+    }, 5000); // Explosion lasts for 1 second
   }
 
   draw() {
+    if(this.isExploding) return;
     const lines = bombFrames[0].split('\n');
     let y = this.y;
     ctx.font = `${FONT_SIZE}px monospace`;
@@ -92,7 +100,11 @@ function resizeCanvas() {
 
 function drawBombs() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  bombs.forEach(bomb => bomb.draw());
+  bombs.forEach(bomb => {
+    if (!bomb.isExploding) {
+      bomb.draw();
+    }
+  });
 }
 
 window.addEventListener('resize', resizeCanvas);

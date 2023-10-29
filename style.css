@@ -8,41 +8,8 @@ body {
 
 @media screen and (max-width: 768px) {
   body {
-    font-size: 9px;
+    /* font-size: 19px; */
   }
 }
 
-h1 {
-  margin: 0;
-  padding: 0;
-}
 
-pre {
-  margin: 0;
-  padding: 0;
-}
-
-
-h2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  font-size: 5em;
-  font-family: "obviously-variable", sans-serif;
-  font-variation-settings: "wght" 100;
-  animation: breathe 10000ms infinite forwards;
-  background: linear-gradient(to bottom, #ff5349, #ff0000, #880808, #000000);
-  color: transparent;
-  -webkit-background-clip: text;
-}
-
-@keyframes breathe {
-  60% {
-    font-variation-settings: "wght" 700; /* end of animation */
-  }
-  100% {
-    font-variation-settings: "wght" 100; /* begin of animation */
-  }
-}
