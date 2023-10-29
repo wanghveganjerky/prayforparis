@@ -63,7 +63,7 @@ class Bomb {
   explode() {
     this.isExploding = true;
     ctx.font = `${FONT_SIZE}px monospace`;
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = '#EE4B2B';
     const lines = explosiveFrames[0].split('\n');
     let y = canvas.height - (lines.length * LINE_HEIGHT);
     lines.forEach(line => {
