@@ -85,10 +85,10 @@ class Bomb {
 
     lines.forEach((line, index) => {
       if (index % 2 === 0) {
-        ctx.fillStyle = '#1a49c0';
+        ctx.fillStyle = '#00008C';
       } else {
         
-        ctx.fillStyle = '#111111';
+        ctx.fillStyle = '#659BDF';
       }
       ctx.fillText(line, this.x, y);
       y += LINE_HEIGHT;
