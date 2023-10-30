@@ -88,7 +88,7 @@ class Bomb {
         ctx.fillStyle = '#1a49c0';
       } else {
         
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = '#111111';
       }
       ctx.fillText(line, this.x, y);
       y += LINE_HEIGHT;
